@@ -57,6 +57,10 @@ class Parser
             }
 
             foreach ($context->leaveFile() as $class) {
+                if (is_null($class)) {
+                    continue;
+                }
+
                 if (null !== $callback) {
                     call_user_func($callback, Message::PARSE_CLASS, array(floor($step / $steps * 100), $class));
                 }
