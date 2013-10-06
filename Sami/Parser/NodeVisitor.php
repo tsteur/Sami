@@ -145,6 +145,8 @@ class NodeVisitor extends \PHPParser_NodeVisitorAbstract
 
         $this->context->addErrors((string) $method, $node->getLine(), $errors);
         $method->setErrors($errors);
+        
+        $method->setClass($this->context->getClass());
 
         if ($this->context->getFilter()->acceptMethod($method)) {
             $this->context->getClass()->addMethod($method);
@@ -190,6 +192,8 @@ class NodeVisitor extends \PHPParser_NodeVisitorAbstract
 
                 $property->setTags($comment->getOtherTags());
             }
+            
+            $property->setClass($this->context->getClass());
             
             if ($this->context->getFilter()->acceptProperty($property)) {
                 $this->context->getClass()->addProperty($property);
