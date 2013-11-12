@@ -165,7 +165,8 @@ class NodeVisitor extends \PHPParser_NodeVisitorAbstract
                 }
                 $method->addParameter($parameter);
             }
-
+            
+            $this->updateMethodParametersFromTags($method, $comment->getTag('param'));
         }
     }
 
