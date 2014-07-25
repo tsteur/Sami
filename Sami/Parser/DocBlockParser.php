@@ -54,8 +54,8 @@ class DocBlockParser
                         } catch (\LogicException $e) {
                             $doc->addError($e->getMessage());
                         }
-                        break;
                     }
+                    break;
 
             }
 
